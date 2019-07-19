@@ -1,0 +1,9 @@
+[submodule "lib/pybind11"]
+	path = lib/pybind11
+	url = https://github.com/pybind/pybind11
+[submodule "lib/NNRVD"]
+	path = lib/NNRVD
+	url = git@gitlab.com:nyorem/NNRVD.git
+[submodule "lib/geogram"]
+	path = lib/geogram
+	url = https://github.com/nyorem/geogram
