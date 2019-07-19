@@ -3,7 +3,7 @@
 	url = https://github.com/pybind/pybind11
 [submodule "lib/NNRVD"]
 	path = lib/NNRVD
-	url = git@gitlab.com:nyorem/NNRVD.git
+	url = https://gitlab.com/nyorem/NNRVD
 [submodule "lib/geogram"]
 	path = lib/geogram
 	url = https://github.com/nyorem/geogram
