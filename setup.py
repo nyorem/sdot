@@ -82,7 +82,7 @@ setup(
     description='Semi-discrete optimal transport algorithms',
     long_description='',
     packages=["sdot", "sdot/core", "sdot/optimal_transport",
-              "sdot/optimal_transport/discrete", "sdot/backend"],
+              "sdot/backend"],
     package_dir={'': 'src'},
     ext_modules=[CMakeExtension('sdot/sdot')],
     cmdclass=dict(build_ext=CMakeBuild, test=PyTest),

@@ -5,9 +5,11 @@
 # - python3 examples/bluenoise.py assets/hemisphere.off 1000
 
 # Python imports
+import imageio
 import math
 import matplotlib.pyplot as plt
 import numpy as np
+from PIL import Image
 import scipy as sp
 import scipy.misc
 import sys
@@ -72,16 +74,16 @@ def blue_noise_sampling(mu, N,
 def load_image(path, w, h, channel=None, flip=False, flip_up=False, verbose=VERBOSE):
     if channel is None:
         # Greyscale
-        V = sp.misc.imread(path, flatten=True)
+        V = imageio.imread(path, as_gray=True)
     else:
-        V = sp.misc.imread(path)
+        V = imageio.imread(path)
         channel_i = channel_to_int(channel)
         assert channel_i != -1
         if channel != "RGB" and len(V.shape) == 3:
             V = V[:, :, channel_i]
 
     # V.shape = (height, width)
-    V = sp.misc.imresize(V, (h, w))
+    resized_image = np.array(Image.fromarray(V).resize((h, w)))
     V = np.fliplr(V) if flip else V
     V = np.flipud(V) if flip_up else V
 
@@ -90,7 +92,7 @@ def load_image(path, w, h, channel=None, flip=False, flip_up=False, verbose=VERB
             target_fname = "target.png"
         else:
             target_fname = "target_" + channel + ".png"
-        sp.misc.imsave(target_fname, V)
+        imageio.imwrite(target_fname, V)
 
     return V
 
@@ -147,7 +149,7 @@ output_suffix = sys.argv[3]
 ### From a texture
 # filename = "examples/assets/textures/checkerboard.png"
 filename = "examples/assets/textures/shinobu.jpg"
-tex = sp.misc.imread(filename, flatten=True)
+tex = imageio.imread(filename, as_gray=True)
 
 if "plane" in off_file:
     # dims = tex.shape
