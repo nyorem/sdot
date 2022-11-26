@@ -104,7 +104,7 @@ T = clean_triangulation(C, T)
 # conforming_centroids_* means that we project the centroids on the boundary
 # of the triangulated surface
 if is_2d(X):
-    from sdot.core.optimal_transport_3 import conforming_centroids_2
+    from sdot.optimal_transport import conforming_centroids_2
     conforming_C = conforming_centroids_2(mu, C, Y, psi)
     plot_2d_tri(conforming_C, T)
 else:
