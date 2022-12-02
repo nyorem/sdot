@@ -49,13 +49,13 @@ namespace MA {
     // A null facet.
     template < typename T >
     typename T::Facet null_facet () {
-        return std::make_pair(typename T::Cell_handle(0), 0);
+        return std::make_pair(typename T::Cell_handle(nullptr), 0);
     }
 
     // A null edge.
     template < typename T >
     typename T::Edge null_edge () {
-        return typename T::Edge(typename T::Cell_handle(0), 0, 0);
+        return typename T::Edge(typename T::Cell_handle(nullptr), 0, 0);
     }
 
     // Intersection betweeen two objects (of type A and B) and whose result is of type Res.
